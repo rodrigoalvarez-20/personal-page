@@ -1,0 +1,22 @@
+
+.navIcon {
+    margin: 0px 8px;
+    width: 28px;
+    height: 28px;
+}
+
+.colStyle {
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 766) {
+    .colStyle {
+        margin: 4px 0 !important;
+    }
+}
+
+.navText {
+    font-family: "Indie Flower"cursive;
+}
