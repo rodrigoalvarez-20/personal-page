@@ -5,6 +5,48 @@ import { SiMicrosoftoutlook } from "react-icons/si"
 import "../styles/navbar.css"
 
 
+const nav_links = [
+    {
+        "ref": "#academica",
+        "name": "Formación academica"
+    },
+    {
+        "ref": "#hobbies",
+        "name": "Hobbies"
+    },
+    {
+        "ref": "#crypto",
+        "name": "Acerca de: Criptografía"
+    },
+    {
+        "ref": `${process.env.PUBLIC_URL}/CV.pdf`,
+        "name": "Mi CV"
+    },
+    {
+        "ref": "#pubkey",
+        "name": "Mi llave pública"
+    }
+]
+
+const social = [
+    {
+        "ref": "https://www.facebook.com/rodrigo.elpelos18/",
+        "icon": <FaFacebookSquare className="navIcon" />
+    },
+    {
+        "ref": "https://api.whatsapp.com/send?phone=5574780847",
+        "icon": <FaWhatsapp className="navIcon" />
+    },
+    {
+        "ref": "https://www.instagram.com/rodrigo_elpelos/?hl=es",
+        "icon": <FaInstagram className="navIcon" />
+    },
+    {
+        "ref": "mailto:rodrigo.alvarez18@outlook.com",
+        "icon": <SiMicrosoftoutlook className="navIcon" />
+    }
+]
+
 const NavBar = () => {
     return (
         <Navbar collapseOnSelect expand="lg">
@@ -13,18 +55,17 @@ const NavBar = () => {
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end" id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="#features">Formacion academica</Nav.Link>
-                        <Nav.Link href="#pricing">Hobbies</Nav.Link>
-                        <Nav.Link href="#pricing">Acerca de: Criptografia</Nav.Link>
+                        {
+                            nav_links.map(item => <Nav.Link href={item.ref}>{item.name}</Nav.Link> )
+                        }
                     </Nav>
                     <Navbar.Text style={{ margin: "0 12px", fontFamily: "Indie Flower", fontSize: "1.5em" }}>
                         Redes sociales 
                     </Navbar.Text>
                     <Row>
-                        <Col xs={6} md={3} className="colStyle" ><a href="https://www.facebook.com/rodrigo.elpelos18/" target="_blank" rel="noreferrer"><FaFacebookSquare className="navIcon" /></a> </Col>
-                        <Col xs={6} md={3} className="colStyle"><a href="https://api.whatsapp.com/send?phone=5574780847" target="_blank" rel="noreferrer"><FaWhatsapp className="navIcon" /></a> </Col>
-                        <Col xs={6} md={3} className="colStyle"><a href="https://www.instagram.com/rodrigo_elpelos/?hl=es" target="_blank" rel="noreferrer"><FaInstagram className="navIcon" /></a> </Col>
-                        <Col xs={6} md={3} className="colStyle"><a href="mailto:rodrigo.alvarez18@outlook.com" target="_blank" rel="noreferrer"><SiMicrosoftoutlook className="navIcon" /></a> </Col>
+                        {
+                            social.map(item => <Col xs={6} md={3} className="colStyle" ><a href={item.ref} target="_blank" rel="noreferrer">{item.icon}</a> </Col>)
+                        }
                     </Row>
                 </Navbar.Collapse>
             </Container>
