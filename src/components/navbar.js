@@ -20,11 +20,14 @@ const nav_links = [
     },
     {
         "ref": `${process.env.PUBLIC_URL}/CV.pdf`,
-        "name": "Mi CV"
+        "name": "Mi CV",
+        "target": "_blank"
     },
     {
-        "ref": "#pubkey",
-        "name": "Mi llave pública"
+        "ref": `${process.env.PUBLIC_URL}/public.pem`,
+        "name": "Mi llave pública",
+        "download": true,
+        "download_name": "APR_Key.pem"
     }
 ]
 
@@ -56,7 +59,7 @@ const NavBar = () => {
                 <Navbar.Collapse className="justify-content-end" id="responsive-navbar-nav">
                     <Nav className="me-auto">
                         {
-                            nav_links.map(item => <Nav.Link href={item.ref}>{item.name}</Nav.Link> )
+                            nav_links.map(item => <Nav.Link href={item.ref} download={ item.download_name } target={ item.target } >{item.name}</Nav.Link> )
                         }
                     </Nav>
                     <Navbar.Text style={{ margin: "0 12px", fontFamily: "Indie Flower", fontSize: "1.5em" }}>
